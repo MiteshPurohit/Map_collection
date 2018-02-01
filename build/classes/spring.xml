@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+]>
+
+<beans>
+    
+    <bean id="tri" class="org.java.Triangle">
+        <property name="a">     <!-- Map<Integer,Integer> a -->
+            <map>
+                <entry key="1" value="1"/> 
+                <entry key="2" value="2"/> <!-- key and value is passing as an Integer value -->
+                <entry key="3" value="3"/>
+            </map>
+        </property>
+        <property name="points">
+            <map>       <!-- Map<String,Point> points -->
+               <entry key="ONE" value-ref="one"/> <!-- key must be of type String -->                          
+               <entry key="TWO" value-ref="two"/> <!-- value-ref must be a reference of Point Class --> 
+               <entry key="THREE" value-ref="three"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="one" class="org.java.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="two" class="org.java.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="10"/>
+    </bean>
+
+    <bean id="three" class="org.java.Point">
+        <property name="x" value="10"/>
+        <property name="y" value="0"/>
+    </bean>
+  
+</beans>
